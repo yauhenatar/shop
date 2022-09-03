@@ -3,15 +3,26 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}MYSHOP{% endblock title %}</title>
+    <title>{% block title %}Магазик{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
     <div id="header">
-        <a href="/" class="logo">MYSHOP</a>
+        <a href="/" class="logo">Магазик</a>
     </div>
     <div id="subheader">
-        <div class="cart">CART IS EMPTY.</div>
+        <div class="cart">
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    В корзине:
+            <a href="{% url 'cart:cart_detail' %}">
+                {{ total_items }} шт,${{ cart.get_total_price }}
+            </a>
+                {% else %}
+                    Корзина пуста
+                {% endif %}
+            {% endwith %}
+        </div>
     </div>
     <div id="content">
         {% block content %}
