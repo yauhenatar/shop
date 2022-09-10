@@ -56,7 +56,7 @@
         </table>
         <p class="text-right">
             <a href="{% url 'shop:product_list' %}" class="button light">В магазин</a>
-            <a href="#" class="button">Оформить заказ</a>
+            <a href="{% url 'orders:order_create' %}" class='button'>Оформить заказ</a>
         </p>
     {% else %}
         <h1>Корзина пуста</h1>

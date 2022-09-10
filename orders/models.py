@@ -2,15 +2,15 @@ from django.db import models
 from myshop.models import Product
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name='Ваше имя')
-    last_name = models.CharField(max_length=50, verbose_name='Ваша фамилия')
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    address = models.CharField(max_length=250, verbose_name='Адрес')
-    postal_code = models.CharField(max_length=20, verbose_name='Почтовый индекс')
-    city = models.CharField(max_length=100, verbose_name='Город')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлено')
-    updated = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
-    paid = models.BooleanField(default=False, verbose_name='Оплачено')
+    address = models.CharField(max_length=250)
+    postal_code = models.CharField(max_length=20)
+    city = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    paid = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)
