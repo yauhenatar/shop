@@ -1,9 +1,9 @@
-from celery.app import task
+from shop.celery import app
 from django.core.mail import send_mail
 from .models import Order
 
 
-@task
+@app.task
 def order_created(order_id): #отправка письма
     order = Order.objects.get(id=order_id)
     subject = 'Заказ {}'.format(order_id)
