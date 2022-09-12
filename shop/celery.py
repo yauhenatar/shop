@@ -2,7 +2,7 @@ import os
 from celery import Celery
 
 # Задаем переменную окружения, содержащую название файла настроек нашего проекта.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myshop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shop.settings')
 
 app = Celery('myshop')
 

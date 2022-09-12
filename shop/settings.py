@@ -23,7 +23,7 @@ CART_SESSION_ID = 'cart'
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^c*r-!qi*v6-r!a+p9p1%-@r(y0nf*4894#cj#-(iczpf6)^kz'
+SECRET_KEY = 'django-insecure-jhdgviunfjkvgsiuog123049&#)sshesdf('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,3 +137,15 @@ CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+BRAINTREE_MERCHANT_ID = 'xr26xrwbjjv6d6gs' # ID продавца.
+BRAINTREE_PUBLIC_KEY = '9cp7m8jxvb9rhhbb' # Публичный ключ.
+BRAINTREE_PRIVATE_KEY = '1615b66d91abf53d144bd2dd6f5ed488' # Секретный ключ.
+
+from braintree import Configuration, Environment
+
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
