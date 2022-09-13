@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,7 @@ Configuration.configure(
     BRAINTREE_PUBLIC_KEY,
     BRAINTREE_PRIVATE_KEY
 )
+
+LOGIN_REDIRECT_URL = 'product_list'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

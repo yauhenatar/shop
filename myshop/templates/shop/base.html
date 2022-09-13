@@ -9,6 +9,14 @@
 <body>
     <div id="header">
         <a href="/" class="logo">Магазик</a>
+              <span class="user">
+                {% if request.user.is_authenticated %}
+                  Здравствуйте, {{ request.user.first_name }},
+                  <a href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                  <a href="{% url 'login' %}">Войти</a>
+                {% endif %}
+              </span>
     </div>
     <div id="subheader">
         <div class="cart">
