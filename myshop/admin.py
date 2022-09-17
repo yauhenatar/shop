@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Category, Product
 from django.utils.safestring import mark_safe
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
